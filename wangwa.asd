@@ -10,4 +10,5 @@
                (:file "wangwa")
 	       (:file "seq")
 	       (:file "alist")
+	       (:file "tsv")
 	       (:file "progress")))

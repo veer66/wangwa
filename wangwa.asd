@@ -9,4 +9,5 @@
   :components ((:file "package")
                (:file "wangwa")
 	       (:file "seq")
+	       (:file "alist")
 	       (:file "progress")))

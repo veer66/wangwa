@@ -2,4 +2,4 @@
 
 (defpackage #:wangwa
   (:use #:cl)
-  (:export #:take #:print-progress))
+  (:export #:take #:print-progress #:assoc*))

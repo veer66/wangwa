@@ -1,4 +1,5 @@
 ;;;; package.lisp
 
 (defpackage #:wangwa
-  (:use #:cl))
+  (:use #:cl)
+  (:export #:take #:print-progress))

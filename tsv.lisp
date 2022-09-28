@@ -49,3 +49,18 @@
 				  (escape v)
 				  v))))
     (format nil pre-format escaped-values)))
+
+(defconstant +buf-size+ 1024)
+
+(defun from-tsv (s)
+  (loop with vals = '()
+	with buf = #1=(make-array +buf-size+ :element-type 'character :fill-pointer 0)
+	for ch across s
+	do
+	   (cond 
+	     ((eq ch #\Tab) (progn #2=(setq vals (cons (make-array (length buf) :element-type 'character :initial-contents buf) vals))
+				   (setq buf #1#)))
+	     (t (vector-push-extend ch buf)))
+	finally
+	   #2#
+	   (return (reverse vals))))

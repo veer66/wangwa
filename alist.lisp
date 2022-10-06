@@ -1,12 +1,19 @@
 (in-package :wangwa)
 
 (defun assoc* (m k v &key test)
-  (loop for i in m
-	collect
+  (loop with attached = nil
+	for i in m	
+	collecting
 	(cond
-	  ((and test (funcall test (car i) k)) #1=(cons k v))
+	  ((and test (funcall test (car i) k)) #1=(progn (setq attached t)
+							 (cons k v)))
 	  ((and (not test) (eq (car i) k)) #1#)
-	  (t i))))
+	  (t i))
+	  into c
+	finally
+	   (return (if attached
+		       c
+		       (acons k v m)))))
 
 (defun update (m k f &key test)
   (loop for i in m

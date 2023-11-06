@@ -11,4 +11,5 @@
 	       (:file "seq")
 	       (:file "alist")
 	       (:file "tsv")
-	       (:file "progress")))
+	       (:file "progress")
+	       (:file "ndsexp")))
